@@ -1,0 +1,8 @@
+C:\Users\shira\Desktop\Final Project\ApiGym\ApiGym\obj\Debug\ApiGym.csprojAssemblyReference.cache
+C:\Users\shira\Desktop\Final Project\ApiGym\ApiGym\obj\Debug\ApiGym.csproj.CoreCompileInputs.cache
+C:\Users\shira\Desktop\Final Project\ApiGym\ApiGym\obj\Debug\ApiGym.csprojResolveAssemblyReference.cache
+C:\Users\shira\Desktop\Final Project\GymC\ApiGym\obj\Debug\ApiGym.csprojAssemblyReference.cache
+C:\Users\shira\Desktop\Final Project\GymC\ApiGym\obj\Debug\ApiGym.csproj.CoreCompileInputs.cache
+C:\Users\shira\Desktop\Final Project\GymC\C-gym\ApiGym\obj\Debug\ApiGym.csprojResolveAssemblyReference.cache
+C:\Users\shira\Desktop\Final Project\GymC\C-gym\ApiGym\obj\Debug\ApiGym.csproj.CoreCompileInputs.cache
+C:\Users\shira\Desktop\Final Project\GymC\ApiGym\obj\Debug\ApiGym.csprojResolveAssemblyReference.cache

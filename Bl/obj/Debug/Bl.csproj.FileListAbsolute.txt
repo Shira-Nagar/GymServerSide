@@ -1,0 +1,5 @@
+C:\Users\shira\Desktop\Final Project\ApiGym\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
+C:\Users\shira\Desktop\Final Project\GymC\Bl\obj\Debug\Bl.csprojAssemblyReference.cache
+C:\Users\shira\Desktop\Final Project\GymC\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
+C:\Users\shira\Desktop\Final Project\GymC\C-gym\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
+C:\Users\shira\Desktop\Final Project\GymC\Bl\obj\Debug\Bl.csprojResolveAssemblyReference.cache
