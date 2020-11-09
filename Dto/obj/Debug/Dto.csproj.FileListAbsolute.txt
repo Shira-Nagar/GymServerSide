@@ -17,3 +17,18 @@ C:\Users\shira\Desktop\Final Project\GymC\Dto\bin\Debug\EntityFramework.SqlServe
 C:\Users\shira\Desktop\Final Project\GymC\Dto\obj\Debug\Dto.csprojResolveAssemblyReference.cache
 C:\Users\shira\Desktop\Final Project\GymC\Dto\obj\Debug\Dto.dll
 C:\Users\shira\Desktop\Final Project\GymC\Dto\obj\Debug\Dto.pdb
+C:\final_project\GymC\Dto\bin\Debug\Dto.dll.config
+C:\final_project\GymC\Dto\bin\Debug\Dto.dll
+C:\final_project\GymC\Dto\bin\Debug\Dto.pdb
+C:\final_project\GymC\Dto\bin\Debug\Dal.dll
+C:\final_project\GymC\Dto\bin\Debug\EntityFramework.dll
+C:\final_project\GymC\Dto\bin\Debug\EntityFramework.SqlServer.dll
+C:\final_project\GymC\Dto\bin\Debug\Dal.pdb
+C:\final_project\GymC\Dto\bin\Debug\Dal.dll.config
+C:\final_project\GymC\Dto\bin\Debug\EntityFramework.xml
+C:\final_project\GymC\Dto\bin\Debug\EntityFramework.SqlServer.xml
+C:\final_project\GymC\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+C:\final_project\GymC\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\final_project\GymC\Dto\obj\Debug\Dto.csproj.CopyComplete
+C:\final_project\GymC\Dto\obj\Debug\Dto.dll
+C:\final_project\GymC\Dto\obj\Debug\Dto.pdb

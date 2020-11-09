@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="GymModelStoreContainer" CdmEntityContainer="GymEntities">
+  <EntityContainerMapping StorageEntityContainer="GymDBModelStoreContainer" CdmEntityContainer="GymDBEntities">
     <EntitySetMapping Name="ClosedGroupes">
-      <EntityTypeMapping TypeName="GymModel.ClosedGroupes">
+      <EntityTypeMapping TypeName="GymDBModel.ClosedGroupes">
         <MappingFragment StoreEntitySet="ClosedGroupes">
           <ScalarProperty Name="team_id" ColumnName="team_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="GymModel.Customers">
+      <EntityTypeMapping TypeName="GymDBModel.Customers">
         <MappingFragment StoreEntitySet="Customers">
           <ScalarProperty Name="customer_id" ColumnName="customer_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -23,7 +23,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FitnessLessons">
-      <EntityTypeMapping TypeName="GymModel.FitnessLessons">
+      <EntityTypeMapping TypeName="GymDBModel.FitnessLessons">
         <MappingFragment StoreEntitySet="FitnessLessons">
           <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -35,17 +35,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FitnessTrainers">
-      <EntityTypeMapping TypeName="GymModel.FitnessTrainers">
+      <EntityTypeMapping TypeName="GymDBModel.FitnessTrainers">
         <MappingFragment StoreEntitySet="FitnessTrainers">
           <ScalarProperty Name="guide_id" ColumnName="guide_id" />
-          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="specialty" ColumnName="specialty" />
           <ScalarProperty Name="phone_num" ColumnName="phone_num" />
           <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Presence">
-      <EntityTypeMapping TypeName="GymModel.Presence">
+      <EntityTypeMapping TypeName="GymDBModel.Presence">
         <MappingFragment StoreEntitySet="Presence">
           <ScalarProperty Name="sub_id" ColumnName="sub_id" />
           <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
@@ -53,7 +53,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Subscriptions">
-      <EntityTypeMapping TypeName="GymModel.Subscriptions">
+      <EntityTypeMapping TypeName="GymDBModel.Subscriptions">
         <MappingFragment StoreEntitySet="Subscriptions">
           <ScalarProperty Name="sub_id" ColumnName="sub_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -64,7 +64,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="GymModel.sysdiagrams">
+      <EntityTypeMapping TypeName="GymDBModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -75,7 +75,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SystemMesseges">
-      <EntityTypeMapping TypeName="GymModel.SystemMesseges">
+      <EntityTypeMapping TypeName="GymDBModel.SystemMesseges">
         <MappingFragment StoreEntitySet="SystemMesseges">
           <ScalarProperty Name="Messege_id" ColumnName="Messege_id" />
           <ScalarProperty Name="Messege_Content" ColumnName="Messege_Content" />
@@ -85,7 +85,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Training">
-      <EntityTypeMapping TypeName="GymModel.Training">
+      <EntityTypeMapping TypeName="GymDBModel.Training">
         <MappingFragment StoreEntitySet="Training">
           <ScalarProperty Name="training_id" ColumnName="training_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -94,7 +94,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Purchases">
-      <EntityTypeMapping TypeName="GymModel.Purchases">
+      <EntityTypeMapping TypeName="GymDBModel.Purchases">
         <MappingFragment StoreEntitySet="Purchases">
           <ScalarProperty Name="customer_id" ColumnName="customer_id" />
           <ScalarProperty Name="sub_id" ColumnName="sub_id" />

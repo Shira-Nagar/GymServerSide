@@ -21,7 +21,7 @@ namespace Dal
         }
     
         public int guide_id { get; set; }
-        public string Specialty { get; set; }
+        public string specialty { get; set; }
         public string phone_num { get; set; }
         public string email { get; set; }
     

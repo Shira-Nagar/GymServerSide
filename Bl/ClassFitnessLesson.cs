@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Bl
 {
    public class ClassFitnessLesson
@@ -12,10 +13,10 @@ namespace Bl
         {
             return Dto.Convert.FitnessLessonConvert.GetAllFitnessLessons(Dal.ClassFitnessLesson.GetAllFitLe());
         }
-        public static ClassFitnessLesson GetFitnessLesson(int id)
+        public static Dto.ClassFitnessLesson GetFitnessLesson(int id)
         {
             return Dto.Convert.FitnessLessonConvert.GetDtoFitLeOne(Dal.ClassFitnessLesson.GetFitnesslesson(id));   
-          }
+        }
         public static void PostFitnessLessons(Dto.ClassFitnessLesson f)
         {
             Dal.ClassFitnessLesson.PostFitnessLesson(Dto.Convert.FitnessLessonConvert.PostFitLeOne(f));

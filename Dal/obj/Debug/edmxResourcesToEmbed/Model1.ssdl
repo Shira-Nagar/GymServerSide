@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="GymDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="ClosedGroupes">
     <Key>
       <PropertyRef Name="team_id" />
@@ -35,7 +35,7 @@
       <PropertyRef Name="guide_id" />
     </Key>
     <Property Name="guide_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="phone_num" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -47,7 +47,7 @@
     <Property Name="lesson_id" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Purchases">
     <Key>
       <PropertyRef Name="customer_id" />
@@ -155,7 +155,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="GymModelStoreContainer">
+  <EntityContainer Name="GymDBModelStoreContainer">
     <EntitySet Name="ClosedGroupes" EntityType="Self.ClosedGroupes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" Schema="dbo" store:Type="Tables" />

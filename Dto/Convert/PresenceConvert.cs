@@ -15,11 +15,9 @@ namespace Dto.Convert
             foreach (var item in allp)
             {
                 ClassPresence p = new ClassPresence()
-                {
-                    
+                {                   
                     lesson_id = item.lesson_id,
                     sub_id = item.sub_id,
-
                 };
                 DtoPre.Add(p);
             }
@@ -33,7 +31,6 @@ namespace Dto.Convert
                 lesson_id = Pre.lesson_id,
                 sub_id = Pre.sub_id,
             };
-
             return p;
         }
     }

@@ -9,7 +9,7 @@ namespace Dto.Convert
 {
      public class FitnessTrainersConvert
     {
-        public static List<ClassFitnessTrainers> GetAllFitnessTrainers(List<ClassFitnessTrainers> allft)
+        public static List<ClassFitnessTrainers> GetAllFitnessTrainers(List<Dal.FitnessTrainers> allft)
         {
 
             List<ClassFitnessTrainers> Dtoft = new List<ClassFitnessTrainers>();
@@ -34,7 +34,7 @@ namespace Dto.Convert
             ClassFitnessTrainers fit  = new ClassFitnessTrainers()
             {
                 guide_id = ft.guide_id,
-                specialty = ft.Specialty,
+                specialty = ft.specialty,
                 phone_num = ft.phone_num,
                 email = ft.email,
             };
@@ -46,7 +46,7 @@ namespace Dto.Convert
             Dal.FitnessTrainers f = new Dal.FitnessTrainers()
             {
                 guide_id = ft.guide_id,
-                Specialty = ft.specialty,
+                specialty = ft.specialty,
                 phone_num = ft.phone_num,
                 email = ft.email,
             };

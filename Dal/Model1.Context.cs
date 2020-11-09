@@ -13,10 +13,10 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GymEntities : DbContext
+    public partial class GymDBEntities : DbContext
     {
-        public GymEntities()
-            : base("name=GymEntities")
+        public GymDBEntities()
+            : base("name=GymDBEntities")
         {
         }
     

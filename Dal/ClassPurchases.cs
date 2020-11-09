@@ -12,7 +12,7 @@ namespace Dal
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                     return g.Purchases.ToList();
             }
             catch(Exception e)
@@ -25,7 +25,7 @@ namespace Dal
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     foreach(var item in g.Purchases)
                     {
@@ -46,14 +46,12 @@ namespace Dal
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     g.Purchases.Add(p);
                     g.SaveChanges();
 
-                }
-                    
-
+                }                   
             }
             catch(Exception e)
             {
@@ -66,7 +64,7 @@ namespace Dal
         {
             try
             {
-                using(GymEntities g = new GymEntities())
+                using(GymDBEntities g = new GymDBEntities())
                 {
                     g.Purchases.Remove(g.Purchases.Where(x => x.customer_id == id).First());
                     g.SaveChanges();

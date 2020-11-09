@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GymModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="GymDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="ClosedGroupes">
     <Key>
       <PropertyRef Name="team_id" />
@@ -39,7 +39,7 @@
       <PropertyRef Name="guide_id" />
     </Key>
     <Property Name="guide_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="phone_num" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_FitnessLessons_FitnessTrainers1" FromRole="FitnessTrainers" ToRole="FitnessLessons" />
@@ -163,7 +163,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="GymEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="GymDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ClosedGroupes" EntityType="Self.ClosedGroupes" />
     <EntitySet Name="Customers" EntityType="Self.Customers" />
     <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" />

@@ -26,9 +26,16 @@ namespace Dto.Convert
             return DtoCu;
         }
 
-        public static Dal.Customers PostCusOne(ClassSubscription c)
+        public static ClassCustomers GetCusOne(Customers c)
         {
-            throw new NotImplementedException();
+            ClassCustomers cl = new ClassCustomers()
+            {
+                customer_id = c.customer_id,
+                name = c.name,
+                email = c.email,
+                phone_num = c.phone
+            };
+            return cl;
         }
 
         public static Customers PostCusOne(ClassCustomers Cus)

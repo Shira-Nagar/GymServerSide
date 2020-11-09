@@ -9,15 +9,16 @@ using Dto;
 namespace Bl
 {
    public  class ClassPresence
-    {
+   {
         public static List<Dto.ClassPresence> GetAllPresences()
         {
             return Dto.Convert.PresenceConvert.GetDtoPre(Dal.ClassPresence.GetAllPresence());
-
         }
    
-    public static void PostPresence(Dto.ClassPresence p)
-    {
-         Dal.ClassPresence.PostPresence(Dto.Convert.PresenceConvert.PostPreOne(p));
-    }
-} }
+        public static void PostPresence(Dto.ClassPresence p)
+        {
+            Dal.ClassPresence.PostPresence(Dto.Convert.PresenceConvert.PostPreOne(p));
+        }
+
+   }
+}

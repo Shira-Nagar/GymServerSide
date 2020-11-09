@@ -18,13 +18,13 @@ namespace GymApi.Controllers
         // GET: api/SystemMessege/5
         public Dto.ClassSystemMessege Get(int id)
         {
-            return Bl.ClassSystemMessege.GetOneMessege(Dto.Convert.SystemMessegeConvert.GetDtoSMessege(id));
+            return Bl.ClassSystemMessege.GetOneMessege(id);
         }
 
         // POST: api/SystemMessege
-        public void Post(List<Bl.ClassSystemMessege> ms)
+        public void Post(Dto.ClassSystemMessege ms)
         {
-            Dal.ClassSystemMessege.PostSMessege(Dto.Convert.SystemMessegeConvert.PostSMessege(ms));
+            Bl.ClassSystemMessege.PostSMesseges(ms);
         }
 
         // PUT: api/SystemMessege/5
@@ -35,7 +35,7 @@ namespace GymApi.Controllers
         // DELETE: api/SystemMessege/5
         public void Delete(int id)
         {
-            Dal.ClassSystemMessege.DeleteSMessege(id);
+            Bl.ClassSystemMessege.DeleteSMessege(id);
         }
     }
 }

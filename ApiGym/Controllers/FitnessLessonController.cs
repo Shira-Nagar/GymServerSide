@@ -1,6 +1,6 @@
-﻿using Dto;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Dto;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,15 +11,15 @@ namespace GymApi.Controllers
     public class FitnessLessonController : ApiController
     {
         // GET: api/FitnessLesson
-        public List<ClassFitnessLesson> Get()
+        public List<Dto.ClassFitnessLesson> Get()
         {
             return Bl.ClassFitnessLesson.GetAllFitnessLessons();
         }
 
         // GET: api/FitnessLesson/5
-        public ClassFitnessLesson Get(int id)
+        public Dto.ClassFitnessLesson Get(int id)
         {
-            return Bl.ClassFitnessTrainers.GetFitnessTrainer(Dto.Convert.FitnessTrainersConvert.GetDtoFitnessTrainer(id));
+            return Bl.ClassFitnessLesson.GetFitnessLesson(id);
         }
 
         // POST: api/FitnessLesson
@@ -36,7 +36,7 @@ namespace GymApi.Controllers
         // DELETE: api/FitnessLesson/5
         public void Delete(int id)
         {
-            Dal.ClassFitnessLesson.DeleteFitnessLesson(id);
+            Bl.ClassFitnessLesson.DeleteFitnessLessons(id);
         }
     }
 }

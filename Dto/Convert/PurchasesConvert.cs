@@ -25,7 +25,7 @@ namespace Dto.Convert
             return DtoPurchase;
         }
 
-        public static ClassPurchases GetSinglePurchase(Purchases p)
+        public static ClassPurchases GetSinglePurchase(Dal.Purchases p)
         {
             ClassPurchases cp = new ClassPurchases()
             {

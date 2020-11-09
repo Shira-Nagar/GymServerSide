@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GymDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ClosedGroupes">
           <Key>
             <PropertyRef Name="team_id" />
@@ -40,7 +40,7 @@
             <PropertyRef Name="guide_id" />
           </Key>
           <Property Name="guide_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="phone_num" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -52,7 +52,7 @@
           <Property Name="lesson_id" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Purchases">
           <Key>
             <PropertyRef Name="customer_id" />
@@ -160,7 +160,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GymModelStoreContainer">
+        <EntityContainer Name="GymDBModelStoreContainer">
           <EntitySet Name="ClosedGroupes" EntityType="Self.ClosedGroupes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" Schema="dbo" store:Type="Tables" />
@@ -202,7 +202,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GymModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GymDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ClosedGroupes">
           <Key>
             <PropertyRef Name="team_id" />
@@ -242,7 +242,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             <PropertyRef Name="guide_id" />
           </Key>
           <Property Name="guide_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone_num" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_FitnessLessons_FitnessTrainers1" FromRole="FitnessTrainers" ToRole="FitnessLessons" />
@@ -366,7 +366,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GymEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GymDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClosedGroupes" EntityType="Self.ClosedGroupes" />
           <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" />
@@ -403,9 +403,9 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GymModelStoreContainer" CdmEntityContainer="GymEntities">
+        <EntityContainerMapping StorageEntityContainer="GymDBModelStoreContainer" CdmEntityContainer="GymDBEntities">
           <EntitySetMapping Name="ClosedGroupes">
-            <EntityTypeMapping TypeName="GymModel.ClosedGroupes">
+            <EntityTypeMapping TypeName="GymDBModel.ClosedGroupes">
               <MappingFragment StoreEntitySet="ClosedGroupes">
                 <ScalarProperty Name="team_id" ColumnName="team_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -415,7 +415,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="GymModel.Customers">
+            <EntityTypeMapping TypeName="GymDBModel.Customers">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -426,7 +426,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FitnessLessons">
-            <EntityTypeMapping TypeName="GymModel.FitnessLessons">
+            <EntityTypeMapping TypeName="GymDBModel.FitnessLessons">
               <MappingFragment StoreEntitySet="FitnessLessons">
                 <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -438,17 +438,17 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FitnessTrainers">
-            <EntityTypeMapping TypeName="GymModel.FitnessTrainers">
+            <EntityTypeMapping TypeName="GymDBModel.FitnessTrainers">
               <MappingFragment StoreEntitySet="FitnessTrainers">
                 <ScalarProperty Name="guide_id" ColumnName="guide_id" />
-                <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+                <ScalarProperty Name="specialty" ColumnName="specialty" />
                 <ScalarProperty Name="phone_num" ColumnName="phone_num" />
                 <ScalarProperty Name="email" ColumnName="email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Presence">
-            <EntityTypeMapping TypeName="GymModel.Presence">
+            <EntityTypeMapping TypeName="GymDBModel.Presence">
               <MappingFragment StoreEntitySet="Presence">
                 <ScalarProperty Name="sub_id" ColumnName="sub_id" />
                 <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
@@ -456,7 +456,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subscriptions">
-            <EntityTypeMapping TypeName="GymModel.Subscriptions">
+            <EntityTypeMapping TypeName="GymDBModel.Subscriptions">
               <MappingFragment StoreEntitySet="Subscriptions">
                 <ScalarProperty Name="sub_id" ColumnName="sub_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -467,7 +467,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="GymModel.sysdiagrams">
+            <EntityTypeMapping TypeName="GymDBModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -478,7 +478,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SystemMesseges">
-            <EntityTypeMapping TypeName="GymModel.SystemMesseges">
+            <EntityTypeMapping TypeName="GymDBModel.SystemMesseges">
               <MappingFragment StoreEntitySet="SystemMesseges">
                 <ScalarProperty Name="Messege_id" ColumnName="Messege_id" />
                 <ScalarProperty Name="Messege_Content" ColumnName="Messege_Content" />
@@ -488,7 +488,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Training">
-            <EntityTypeMapping TypeName="GymModel.Training">
+            <EntityTypeMapping TypeName="GymDBModel.Training">
               <MappingFragment StoreEntitySet="Training">
                 <ScalarProperty Name="training_id" ColumnName="training_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -497,7 +497,7 @@ warning 6002: The table/view 'Gym.dbo.Purchases' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Purchases">
-            <EntityTypeMapping TypeName="GymModel.Purchases">
+            <EntityTypeMapping TypeName="GymDBModel.Purchases">
               <MappingFragment StoreEntitySet="Purchases">
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
                 <ScalarProperty Name="sub_id" ColumnName="sub_id" />

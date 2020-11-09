@@ -18,6 +18,5 @@ namespace Dal
         public string Messege_Content { get; set; }
         public System.DateTime Creation_date { get; set; }
         public System.DateTime deletion_date { get; set; }
-        public DateTime Deletion_date { get; set; }
     }
 }

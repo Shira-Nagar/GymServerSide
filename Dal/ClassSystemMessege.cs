@@ -12,7 +12,7 @@ using System.Threading.Tasks;
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     return g.SystemMesseges.ToList();
                 }
@@ -27,7 +27,7 @@ using System.Threading.Tasks;
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     foreach (var item in g.SystemMesseges)
                     {
@@ -48,7 +48,7 @@ using System.Threading.Tasks;
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     g.SystemMesseges.Add(sm);
                     g.SaveChanges();
@@ -63,7 +63,7 @@ using System.Threading.Tasks;
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     g.SystemMesseges.Remove(g.SystemMesseges.Where(a => a.Messege_id == id).First());
                     g.SaveChanges();

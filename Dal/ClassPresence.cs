@@ -13,7 +13,7 @@ namespace Dal
             {
                 try
                 {
-                    using (GymEntities g = new GymEntities())
+                    using (GymDBEntities g = new GymDBEntities())
                     {
                         return g.Presence.ToList();
                     }
@@ -30,7 +30,7 @@ namespace Dal
             {
                 try
                 {
-                    using (GymEntities g = new GymEntities())
+                    using (GymDBEntities g = new GymDBEntities())
                     {
                         g.Presence.Add(p);
                         g.SaveChanges();

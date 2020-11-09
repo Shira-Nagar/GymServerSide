@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dto;
+
 namespace Bl
 {
     public class ClassSubsciption
@@ -12,7 +13,7 @@ namespace Bl
         {
             return Dto.Convert.SubscriptionsConvert.GetDtoSub(Dal.ClassSubscription.GetAllSubscription());
         }
-        public static ClassSubscription GetSubscription(int id)
+        public static Dto.ClassSubscription GetSubscription(int id)
         {
             return Dto.Convert.SubscriptionsConvert.GetDtoSubOne(Dal.ClassSubscription.GetSubscription(id));
         }

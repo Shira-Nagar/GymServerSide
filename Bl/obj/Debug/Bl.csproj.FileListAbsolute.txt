@@ -3,3 +3,21 @@ C:\Users\shira\Desktop\Final Project\GymC\Bl\obj\Debug\Bl.csprojAssemblyReferenc
 C:\Users\shira\Desktop\Final Project\GymC\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
 C:\Users\shira\Desktop\Final Project\GymC\C-gym\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
 C:\Users\shira\Desktop\Final Project\GymC\Bl\obj\Debug\Bl.csprojResolveAssemblyReference.cache
+C:\final_project\GymC\Bl\obj\Debug\Bl.csprojAssemblyReference.cache
+C:\final_project\GymC\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
+C:\final_project\GymC\Bl\bin\Debug\Bl.dll.config
+C:\final_project\GymC\Bl\bin\Debug\Bl.dll
+C:\final_project\GymC\Bl\bin\Debug\Bl.pdb
+C:\final_project\GymC\Bl\bin\Debug\Dal.dll
+C:\final_project\GymC\Bl\bin\Debug\Dto.dll
+C:\final_project\GymC\Bl\bin\Debug\EntityFramework.dll
+C:\final_project\GymC\Bl\bin\Debug\EntityFramework.SqlServer.dll
+C:\final_project\GymC\Bl\bin\Debug\Dal.pdb
+C:\final_project\GymC\Bl\bin\Debug\Dal.dll.config
+C:\final_project\GymC\Bl\bin\Debug\Dto.pdb
+C:\final_project\GymC\Bl\bin\Debug\Dto.dll.config
+C:\final_project\GymC\Bl\bin\Debug\EntityFramework.xml
+C:\final_project\GymC\Bl\bin\Debug\EntityFramework.SqlServer.xml
+C:\final_project\GymC\Bl\obj\Debug\Bl.csproj.CopyComplete
+C:\final_project\GymC\Bl\obj\Debug\Bl.dll
+C:\final_project\GymC\Bl\obj\Debug\Bl.pdb

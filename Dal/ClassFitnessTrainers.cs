@@ -12,7 +12,7 @@ namespace Dal
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     return g.FitnessTrainers.ToList();
                 }
@@ -26,16 +26,16 @@ namespace Dal
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     foreach (var item in g.FitnessTrainers)
                     {
                         if (item.guide_id == id)
                         {
                             return item;
-                        }
-                        return null;
+                        }                 
                     }
+                    return null;
                 }
 
             }
@@ -43,13 +43,13 @@ namespace Dal
             {
                 return null;
             }
-            return null;
+
         }
         public static void PostFitnessTrainer(FitnessTrainers ft)
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     g.FitnessTrainers.Add(ft);
                     g.SaveChanges();
@@ -64,7 +64,7 @@ namespace Dal
         {
             try
             {
-                using (GymEntities g = new GymEntities())
+                using (GymDBEntities g = new GymDBEntities())
                 {
                     g.FitnessTrainers.Remove(g.FitnessTrainers.Where(a => a.guide_id == id).First());
                     g.SaveChanges();

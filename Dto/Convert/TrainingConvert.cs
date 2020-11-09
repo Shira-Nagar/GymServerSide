@@ -36,7 +36,6 @@ namespace Dto.Convert
                 descripition = Training.description,
                 Training_id = Training.training_id,
             };
-
             return t;
         }
         public static Dal.Training PostTraining(ClassTraining Training)

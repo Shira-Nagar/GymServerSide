@@ -32,3 +32,15 @@ C:\Users\shira\Desktop\Final Project\GymC\Dal\obj\Debug\Dal.csprojResolveAssembl
 C:\Users\shira\Desktop\Final Project\GymC\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
 C:\Users\shira\Desktop\Final Project\GymC\Dal\obj\Debug\Dal.dll
 C:\Users\shira\Desktop\Final Project\GymC\Dal\obj\Debug\Dal.pdb
+C:\final_project\GymC\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
+C:\final_project\GymC\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
+C:\final_project\GymC\Dal\obj\Debug\Dal.dll
+C:\final_project\GymC\Dal\obj\Debug\Dal.pdb
+C:\final_project\GymC\Dal\bin\Debug\Dal.dll.config
+C:\final_project\GymC\Dal\bin\Debug\Dal.dll
+C:\final_project\GymC\Dal\bin\Debug\Dal.pdb
+C:\final_project\GymC\Dal\bin\Debug\EntityFramework.dll
+C:\final_project\GymC\Dal\bin\Debug\EntityFramework.SqlServer.dll
+C:\final_project\GymC\Dal\bin\Debug\EntityFramework.xml
+C:\final_project\GymC\Dal\bin\Debug\EntityFramework.SqlServer.xml
+C:\final_project\GymC\Dal\obj\Debug\Dal.csproj.CopyComplete

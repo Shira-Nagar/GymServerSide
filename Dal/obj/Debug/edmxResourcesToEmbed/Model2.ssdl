@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GymDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="address" Type="nchar" MaxLength="30" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FitnessLessons">
+    <Key>
+      <PropertyRef Name="lesson_id" />
+    </Key>
+    <Property Name="lesson_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="day" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="trainer_id" Type="int" Nullable="false" />
+    <Property Name="quota_training" Type="int" />
+  </EntityType>
+  <EntityType Name="FitnessTrainers">
+    <Key>
+      <PropertyRef Name="guide_id" />
+    </Key>
+    <Property Name="guide_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone_num" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Presence">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="int" Nullable="false" />
+    <Property Name="lesson_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="sub_id" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="sub_id" Type="int" Nullable="false" />
+    <Property Name="status" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subscriptions">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="20" />
+    <Property Name="duration" Type="int" />
+    <Property Name="lessons_num" Type="int" Nullable="false" />
+    <Property Name="training_id" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SystemMesseges">
+    <Key>
+      <PropertyRef Name="Messege_id" />
+    </Key>
+    <Property Name="Messege_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Messege_Content" Type="text" Nullable="false" />
+    <Property Name="Creation_date" Type="datetime" Nullable="false" />
+    <Property Name="deletion_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="training_id" />
+    </Key>
+    <Property Name="training_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <Association Name="FK_FitnessLessons_FitnessTrainers1">
+    <End Role="FitnessTrainers" Type="Self.FitnessTrainers" Multiplicity="1" />
+    <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FitnessTrainers">
+        <PropertyRef Name="guide_id" />
+      </Principal>
+      <Dependent Role="FitnessLessons">
+        <PropertyRef Name="trainer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presence_FitnessLessons1">
+    <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="1" />
+    <End Role="Presence" Type="Self.Presence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FitnessLessons">
+        <PropertyRef Name="lesson_id" />
+      </Principal>
+      <Dependent Role="Presence">
+        <PropertyRef Name="lesson_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_Subscriptions">
+    <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="1" />
+    <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscriptions">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="sub_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GymDBModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FitnessTrainers" EntityType="Self.FitnessTrainers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Presence" EntityType="Self.Presence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscriptions" EntityType="Self.Subscriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemMesseges" EntityType="Self.SystemMesseges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchases" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Purchases].[customer_id] AS [customer_id], 
+    [Purchases].[sub_id] AS [sub_id], 
+    [Purchases].[status] AS [status]
+    FROM [dbo].[Purchases] AS [Purchases]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_FitnessLessons_FitnessTrainers1" Association="Self.FK_FitnessLessons_FitnessTrainers1">
+      <End Role="FitnessTrainers" EntitySet="FitnessTrainers" />
+      <End Role="FitnessLessons" EntitySet="FitnessLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presence_FitnessLessons1" Association="Self.FK_Presence_FitnessLessons1">
+      <End Role="FitnessLessons" EntitySet="FitnessLessons" />
+      <End Role="Presence" EntitySet="Presence" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_Customers" Association="Self.FK_Purchases_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_Subscriptions" Association="Self.FK_Purchases_Subscriptions">
+      <End Role="Subscriptions" EntitySet="Subscriptions" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

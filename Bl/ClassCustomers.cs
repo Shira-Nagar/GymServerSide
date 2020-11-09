@@ -10,11 +10,16 @@ namespace Bl
     public class ClassCustomers
     {
         public static List<Dto.ClassCustomers> GetAllCustomers()
-        {
-            
+        {            
             return Dto.Convert.CustomersConvert.GetDtoCust(Dal.ClassCustomers.GetAllCustomers());
         }
-        public static void PostCustomer(Dto.ClassSubscription c)
+
+        public static Dto.ClassCustomers GetCustomerById(int id)
+        {
+            return Dto.Convert.CustomersConvert.GetCusOne(Dal.ClassCustomers.GetOneCustomer(id));
+        }
+
+        public static void PostCustomer(Dto.ClassCustomers c)
         {
             Dal.ClassCustomers.PostCustomer(Dto.Convert.CustomersConvert.PostCusOne(c));
         }

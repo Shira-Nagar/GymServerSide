@@ -12,7 +12,7 @@ namespace Bl
         {
             return Dto.Convert.SystemMessegeConvert.GetAllSMessege(Dal.ClassSystemMessege.GetAllMesseges());
         }
-        public static ClassSystemMessege GetOneMessege(int id)
+        public static Dto.ClassSystemMessege GetOneMessege(int id)
         {
             return Dto.Convert.SystemMessegeConvert.GetDtoSMessege(Dal.ClassSystemMessege.GetMessege(id));
         }

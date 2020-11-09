@@ -13,13 +13,13 @@ namespace ApiGym.Controllers
     public class PurchasesController : ApiController
     {
         // GET: api/Purchaces
-        public List<ClassPurchases> Get()
+        public List<Dto.ClassPurchases> Get()
         {
             return Bl.ClassPurchases.GetAllPurchases();
         }
 
         // GET: api/Purchaces/5
-        public string Get(int id)
+        public Dto.ClassPurchases Get(int id)
         {
             return Bl.ClassPurchases.GetSinglePurchase(id);
         }

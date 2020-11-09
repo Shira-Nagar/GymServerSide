@@ -14,7 +14,7 @@ namespace Bl
             return Dto.Convert.PurchasesConvert.GetDtoAllPurchases(Dal.ClassPurchases.GetAllPurchases());
         }
 
-        public static ClassPurchases GetSinglePurchase(int id)
+        public static Dto.ClassPurchases GetSinglePurchase(int id)
         {
             return Dto.Convert.PurchasesConvert.GetSinglePurchase(Dal.ClassPurchases.GetPurchasesById(id));
         }

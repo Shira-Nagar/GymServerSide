@@ -6,3 +6,34 @@ C:\Users\shira\Desktop\Final Project\GymC\ApiGym\obj\Debug\ApiGym.csproj.CoreCom
 C:\Users\shira\Desktop\Final Project\GymC\C-gym\ApiGym\obj\Debug\ApiGym.csprojResolveAssemblyReference.cache
 C:\Users\shira\Desktop\Final Project\GymC\C-gym\ApiGym\obj\Debug\ApiGym.csproj.CoreCompileInputs.cache
 C:\Users\shira\Desktop\Final Project\GymC\ApiGym\obj\Debug\ApiGym.csprojResolveAssemblyReference.cache
+C:\final_project\GymC\ApiGym\obj\Debug\ApiGym.csprojAssemblyReference.cache
+C:\final_project\GymC\ApiGym\obj\Debug\ApiGym.csproj.CoreCompileInputs.cache
+C:\final_project\GymC\ApiGym\bin\ApiGym.dll.config
+C:\final_project\GymC\ApiGym\bin\ApiGym.dll
+C:\final_project\GymC\ApiGym\bin\ApiGym.pdb
+C:\final_project\GymC\ApiGym\bin\Bl.dll
+C:\final_project\GymC\ApiGym\bin\Dto.dll
+C:\final_project\GymC\ApiGym\bin\EntityFramework.dll
+C:\final_project\GymC\ApiGym\bin\EntityFramework.SqlServer.dll
+C:\final_project\GymC\ApiGym\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\final_project\GymC\ApiGym\bin\Newtonsoft.Json.dll
+C:\final_project\GymC\ApiGym\bin\System.Net.Http.Formatting.dll
+C:\final_project\GymC\ApiGym\bin\System.Web.Http.dll
+C:\final_project\GymC\ApiGym\bin\System.Web.Http.WebHost.dll
+C:\final_project\GymC\ApiGym\bin\Dal.dll
+C:\final_project\GymC\ApiGym\bin\Bl.pdb
+C:\final_project\GymC\ApiGym\bin\Bl.dll.config
+C:\final_project\GymC\ApiGym\bin\Dto.pdb
+C:\final_project\GymC\ApiGym\bin\Dto.dll.config
+C:\final_project\GymC\ApiGym\bin\EntityFramework.xml
+C:\final_project\GymC\ApiGym\bin\EntityFramework.SqlServer.xml
+C:\final_project\GymC\ApiGym\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\final_project\GymC\ApiGym\bin\System.Net.Http.Formatting.xml
+C:\final_project\GymC\ApiGym\bin\System.Web.Http.xml
+C:\final_project\GymC\ApiGym\bin\Newtonsoft.Json.xml
+C:\final_project\GymC\ApiGym\bin\System.Web.Http.WebHost.xml
+C:\final_project\GymC\ApiGym\bin\Dal.pdb
+C:\final_project\GymC\ApiGym\bin\Dal.dll.config
+C:\final_project\GymC\ApiGym\obj\Debug\ApiGym.csproj.CopyComplete
+C:\final_project\GymC\ApiGym\obj\Debug\ApiGym.dll
+C:\final_project\GymC\ApiGym\obj\Debug\ApiGym.pdb

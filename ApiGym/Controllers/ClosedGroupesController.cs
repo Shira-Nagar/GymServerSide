@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -20,9 +21,9 @@ namespace Project.Controllers
         }
 
         // GET: api/ClosedGroupes/5
-        public string Get(int id)
+        public ClassClosedGroups Get(int id)
         {
-            return "value";
+            return Bl.ClassClosedGroups.GetClosedGroups(id);
         }
 
         // POST: api/ClosedGroupes

@@ -25,7 +25,6 @@ namespace GymApi.Controllers
         // POST: api/Presence
         public void Post(Dto.ClassPresence P)
         {
-
              Bl.ClassPresence.PostPresence(P);
         }
 

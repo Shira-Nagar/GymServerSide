@@ -12,7 +12,7 @@ namespace Bl
         {
             return Dto.Convert.TrainingConvert.GetDtoTrainings(Dal.ClassTraining.GetAllTraining());
         }
-        public static ClassTraining GetTraining(int id)
+        public static Dto.ClassTraining GetTraining(int id)
         {
             return Dto.Convert.TrainingConvert.GetDtoTraining(Dal.ClassTraining.GetTraining(id));
         }

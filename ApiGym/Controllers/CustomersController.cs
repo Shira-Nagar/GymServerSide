@@ -1,40 +1,45 @@
-﻿  using System;
+﻿using Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Dto;
+
 
 namespace GymApi.Controllers
 {
+    //[RoutePrefix("api/Customers")]
     public class CustomersController : ApiController
     {
         // GET: api/Customers
-        public List<ClassCustomers> Get()
+        public List<Dto.ClassCustomers> Get()
         {
             return Bl.ClassCustomers.GetAllCustomers();
         }
 
         //    // GET: api/Customers/5
-        public string Get(int id)
+        //[HttpGet]
+        //[Route("GetCustomerById/{id}")]
+        public Dto.ClassCustomers Get(int id)
         {
-            return "value";
+            return Bl.ClassCustomers.GetCustomerById(id);
         }
 
         //    // POST: api/Customers
-        public void PostCustomer([FromBody]string value)
+        public void PostCustomer(Dto.ClassCustomers c)
+        {
+            Bl.ClassCustomers.PostCustomer(c);
+        }
+
+       // PUT: api/Customers/5
+        public void Put(int id, [FromBody]string value)
         {
         }
 
-        // PUT: api/Customers/5
-           public void Put(int id, [FromBody]string value)
-            {
-            }
-
-    // DELETE: api/Customers/5
-    public void Delete(int id)
-    {
-    }
+       // DELETE: api/Customers/5
+        public void Delete(int id)
+        {
+        }
 }
 }
