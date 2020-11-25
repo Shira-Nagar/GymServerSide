@@ -27,6 +27,7 @@ namespace Dal
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
+                    //אם קוד הלקוח זהה תצרף אותו לרשימה
                     foreach(var item in g.Purchases)
                     {
                         if (item.customer_id == id)
@@ -41,6 +42,32 @@ namespace Dal
                 return null;
             }
         }
+
+
+        public static List<Purchases> GetListOfCustomers(int training_id)
+        {
+            try
+            {
+                using (GymDBEntities g = new GymDBEntities())
+                {
+                    List<Purchases> l = new List<Purchases>();
+
+                    foreach (var item in g.Purchases)
+                    {
+                        //אם קוד השיעור זהה תכניס את הלקוח לרשימה
+                        if (item.sub_id == training_id)
+                            l.Add(item);
+                    }
+                    return l;
+                }                
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
 
         public static void PostPurchase(Purchases p)
         {

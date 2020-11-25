@@ -11,5 +11,6 @@ namespace Dto
         public int customer_id { get; set; }
         public int sub_id { get; set; }
         public string status { get; set; }
+        public int? training_id { get; set; }
     }
 }

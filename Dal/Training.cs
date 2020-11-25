@@ -17,14 +17,15 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Training()
         {
-            this.ClosedGroupes = new HashSet<ClosedGroupes>();
+            this.FitnessLessons = new HashSet<FitnessLessons>();
         }
     
         public int training_id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
+        public Nullable<int> quota { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ClosedGroupes> ClosedGroupes { get; set; }
+        public virtual ICollection<FitnessLessons> FitnessLessons { get; set; }
     }
 }

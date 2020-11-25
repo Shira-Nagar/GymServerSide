@@ -17,6 +17,7 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FitnessTrainers()
         {
+            this.ClosedGroupes = new HashSet<ClosedGroupes>();
             this.FitnessLessons = new HashSet<FitnessLessons>();
         }
     
@@ -24,7 +25,10 @@ namespace Dal
         public string specialty { get; set; }
         public string phone_num { get; set; }
         public string email { get; set; }
+        public string name { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClosedGroupes> ClosedGroupes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FitnessLessons> FitnessLessons { get; set; }
     }

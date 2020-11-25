@@ -5,10 +5,15 @@
       <PropertyRef Name="team_id" />
     </Key>
     <Property Name="team_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="descripition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="trainig_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Training" Relationship="Self.FK_ClosedGroupes_Training" FromRole="ClosedGroupes" ToRole="Training" />
+    <Property Name="name" Type="Int32" Nullable="false" />
+    <Property Name="day" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="trainer_id" Type="Int32" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actual_capacity" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="time" Type="Time" Precision="7" />
+    <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_ClosedGroupes_FitnessLessons" FromRole="ClosedGroupes" ToRole="FitnessLessons" />
+    <NavigationProperty Name="FitnessTrainers" Relationship="Self.FK_ClosedGroupes_FitnessTrainers" FromRole="ClosedGroupes" ToRole="FitnessTrainers" />
   </EntityType>
   <EntityType Name="Customers">
     <Key>
@@ -16,9 +21,10 @@
     </Key>
     <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="id_number" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Customers" FromRole="Customers" ToRole="Purchases" />
   </EntityType>
   <EntityType Name="FitnessLessons">
@@ -26,12 +32,16 @@
       <PropertyRef Name="lesson_id" />
     </Key>
     <Property Name="lesson_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="Int32" Nullable="false" />
     <Property Name="day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="time" Type="Time" Nullable="false" Precision="7" />
     <Property Name="trainer_id" Type="Int32" Nullable="false" />
-    <Property Name="quota_training" Type="Int32" />
-    <NavigationProperty Name="FitnessTrainers" Relationship="Self.FK_FitnessLessons_FitnessTrainers1" FromRole="FitnessLessons" ToRole="FitnessTrainers" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actual_capacity" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ClosedGroupes" Relationship="Self.FK_ClosedGroupes_FitnessLessons" FromRole="FitnessLessons" ToRole="ClosedGroupes" />
+    <NavigationProperty Name="FitnessTrainers" Relationship="Self.FK_FitnessLessons_FitnessTrainers" FromRole="FitnessLessons" ToRole="FitnessTrainers" />
+    <NavigationProperty Name="Training" Relationship="Self.FK_FitnessLessons_Training" FromRole="FitnessLessons" ToRole="Training" />
     <NavigationProperty Name="Presence" Relationship="Self.FK_Presence_FitnessLessons1" FromRole="FitnessLessons" ToRole="Presence" />
   </EntityType>
   <EntityType Name="FitnessTrainers">
@@ -41,8 +51,10 @@
     <Property Name="guide_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="phone_num" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_FitnessLessons_FitnessTrainers1" FromRole="FitnessTrainers" ToRole="FitnessLessons" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ClosedGroupes" Relationship="Self.FK_ClosedGroupes_FitnessTrainers" FromRole="FitnessTrainers" ToRole="ClosedGroupes" />
+    <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_FitnessLessons_FitnessTrainers" FromRole="FitnessTrainers" ToRole="FitnessLessons" />
   </EntityType>
   <EntityType Name="Presence">
     <Key>
@@ -52,16 +64,16 @@
     <Property Name="lesson_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_Presence_FitnessLessons1" FromRole="Presence" ToRole="FitnessLessons" />
   </EntityType>
-  <EntityType Name="Subscriptions">
+  <EntityType Name="SubscriptionsTypes">
     <Key>
       <PropertyRef Name="sub_id" />
     </Key>
     <Property Name="sub_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
     <Property Name="duration" Type="Int32" />
-    <Property Name="lessons_num" Type="Int32" Nullable="false" />
-    <Property Name="training_id" Type="Int32" />
-    <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Subscriptions" FromRole="Subscriptions" ToRole="Purchases" />
+    <Property Name="lessons_num" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Subscriptions" FromRole="SubscriptionsTypes" ToRole="Purchases" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -73,14 +85,14 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="SystemMesseges">
+  <EntityType Name="SystemMessege">
     <Key>
       <PropertyRef Name="Messege_id" />
     </Key>
     <Property Name="Messege_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Messege_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Creation_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="deletion_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Messege_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Creation_date" Type="DateTime" Precision="3" />
+    <Property Name="deletion_date" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Training">
     <Key>
@@ -89,29 +101,42 @@
     <Property Name="training_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ClosedGroupes" Relationship="Self.FK_ClosedGroupes_Training" FromRole="Training" ToRole="ClosedGroupes" />
+    <Property Name="quota" Type="Int32" />
+    <NavigationProperty Name="FitnessLessons" Relationship="Self.FK_FitnessLessons_Training" FromRole="Training" ToRole="FitnessLessons" />
   </EntityType>
   <EntityType Name="Purchases">
     <Key>
       <PropertyRef Name="customer_id" />
       <PropertyRef Name="sub_id" />
-      <PropertyRef Name="status" />
     </Key>
     <Property Name="customer_id" Type="Int32" Nullable="false" />
     <Property Name="sub_id" Type="Int32" Nullable="false" />
-    <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="training_id" Type="Int32" />
     <NavigationProperty Name="Customers" Relationship="Self.FK_Purchases_Customers" FromRole="Purchases" ToRole="Customers" />
-    <NavigationProperty Name="Subscriptions" Relationship="Self.FK_Purchases_Subscriptions" FromRole="Purchases" ToRole="Subscriptions" />
+    <NavigationProperty Name="SubscriptionsTypes" Relationship="Self.FK_Purchases_Subscriptions" FromRole="Purchases" ToRole="SubscriptionsTypes" />
   </EntityType>
-  <Association Name="FK_ClosedGroupes_Training">
-    <End Role="Training" Type="Self.Training" Multiplicity="1" />
+  <Association Name="FK_ClosedGroupes_FitnessLessons">
+    <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="1" />
     <End Role="ClosedGroupes" Type="Self.ClosedGroupes" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Training">
-        <PropertyRef Name="training_id" />
+      <Principal Role="FitnessLessons">
+        <PropertyRef Name="lesson_id" />
       </Principal>
       <Dependent Role="ClosedGroupes">
-        <PropertyRef Name="trainig_id" />
+        <PropertyRef Name="name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosedGroupes_FitnessTrainers">
+    <End Role="FitnessTrainers" Type="Self.FitnessTrainers" Multiplicity="0..1" />
+    <End Role="ClosedGroupes" Type="Self.ClosedGroupes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FitnessTrainers">
+        <PropertyRef Name="guide_id" />
+      </Principal>
+      <Dependent Role="ClosedGroupes">
+        <PropertyRef Name="trainer_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -127,7 +152,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FitnessLessons_FitnessTrainers1">
+  <Association Name="FK_FitnessLessons_FitnessTrainers">
     <End Role="FitnessTrainers" Type="Self.FitnessTrainers" Multiplicity="1" />
     <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,6 +161,18 @@
       </Principal>
       <Dependent Role="FitnessLessons">
         <PropertyRef Name="trainer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FitnessLessons_Training">
+    <End Role="Training" Type="Self.Training" Multiplicity="1" />
+    <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Training">
+        <PropertyRef Name="training_id" />
+      </Principal>
+      <Dependent Role="FitnessLessons">
+        <PropertyRef Name="name" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -152,10 +189,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchases_Subscriptions">
-    <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="1" />
+    <End Role="SubscriptionsTypes" Type="Self.SubscriptionsTypes" Multiplicity="1" />
     <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Subscriptions">
+      <Principal Role="SubscriptionsTypes">
         <PropertyRef Name="sub_id" />
       </Principal>
       <Dependent Role="Purchases">
@@ -169,21 +206,29 @@
     <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" />
     <EntitySet Name="FitnessTrainers" EntityType="Self.FitnessTrainers" />
     <EntitySet Name="Presence" EntityType="Self.Presence" />
-    <EntitySet Name="Subscriptions" EntityType="Self.Subscriptions" />
+    <EntitySet Name="SubscriptionsTypes" EntityType="Self.SubscriptionsTypes" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="SystemMesseges" EntityType="Self.SystemMesseges" />
+    <EntitySet Name="SystemMessege" EntityType="Self.SystemMessege" />
     <EntitySet Name="Training" EntityType="Self.Training" />
     <EntitySet Name="Purchases" EntityType="Self.Purchases" />
-    <AssociationSet Name="FK_ClosedGroupes_Training" Association="Self.FK_ClosedGroupes_Training">
-      <End Role="Training" EntitySet="Training" />
+    <AssociationSet Name="FK_ClosedGroupes_FitnessLessons" Association="Self.FK_ClosedGroupes_FitnessLessons">
+      <End Role="FitnessLessons" EntitySet="FitnessLessons" />
+      <End Role="ClosedGroupes" EntitySet="ClosedGroupes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosedGroupes_FitnessTrainers" Association="Self.FK_ClosedGroupes_FitnessTrainers">
+      <End Role="FitnessTrainers" EntitySet="FitnessTrainers" />
       <End Role="ClosedGroupes" EntitySet="ClosedGroupes" />
     </AssociationSet>
     <AssociationSet Name="FK_Purchases_Customers" Association="Self.FK_Purchases_Customers">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="Purchases" EntitySet="Purchases" />
     </AssociationSet>
-    <AssociationSet Name="FK_FitnessLessons_FitnessTrainers1" Association="Self.FK_FitnessLessons_FitnessTrainers1">
+    <AssociationSet Name="FK_FitnessLessons_FitnessTrainers" Association="Self.FK_FitnessLessons_FitnessTrainers">
       <End Role="FitnessTrainers" EntitySet="FitnessTrainers" />
+      <End Role="FitnessLessons" EntitySet="FitnessLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FitnessLessons_Training" Association="Self.FK_FitnessLessons_Training">
+      <End Role="Training" EntitySet="Training" />
       <End Role="FitnessLessons" EntitySet="FitnessLessons" />
     </AssociationSet>
     <AssociationSet Name="FK_Presence_FitnessLessons1" Association="Self.FK_Presence_FitnessLessons1">
@@ -191,7 +236,7 @@
       <End Role="Presence" EntitySet="Presence" />
     </AssociationSet>
     <AssociationSet Name="FK_Purchases_Subscriptions" Association="Self.FK_Purchases_Subscriptions">
-      <End Role="Subscriptions" EntitySet="Subscriptions" />
+      <End Role="SubscriptionsTypes" EntitySet="SubscriptionsTypes" />
       <End Role="Purchases" EntitySet="Purchases" />
     </AssociationSet>
   </EntityContainer>

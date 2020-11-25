@@ -15,10 +15,15 @@ namespace Dal
     public partial class ClosedGroupes
     {
         public int team_id { get; set; }
-        public string name { get; set; }
-        public string descripition { get; set; }
-        public int trainig_id { get; set; }
+        public int name { get; set; }
+        public string day { get; set; }
+        public Nullable<int> trainer_id { get; set; }
+        public string gender { get; set; }
+        public Nullable<int> actual_capacity { get; set; }
+        public string status { get; set; }
+        public Nullable<System.TimeSpan> time { get; set; }
     
-        public virtual Training Training { get; set; }
+        public virtual FitnessLessons FitnessLessons { get; set; }
+        public virtual FitnessTrainers FitnessTrainers { get; set; }
     }
 }

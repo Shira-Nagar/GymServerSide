@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    public class ClassSubscription
+    public class ClassSubscriptionsTypes
     {
-       public static  List<Subscriptions> GetAllSubscription()
+       public static  List<SubscriptionsTypes> GetAllSubscription()
         {
             try
             {
                 using (GymDBEntities g=new GymDBEntities())
                 {
-                    return g.Subscriptions.ToList();
+                    return g.SubscriptionsTypes.ToList();
                 }
             }
             catch(Exception e)
@@ -23,13 +23,13 @@ namespace Dal
             }
         
         }
-        public static Subscriptions GetSubscription(int id)
+        public static SubscriptionsTypes GetSubscription(int id)
         {
             try
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    foreach (var item in g.Subscriptions)
+                    foreach (var item in g.SubscriptionsTypes)
                     {
                         if(item.sub_id==id)
                         {
@@ -44,13 +44,13 @@ namespace Dal
                 return null;
             }
         }
-        public static void PostSubscription(Subscriptions s)
+        public static void PostSubscription(SubscriptionsTypes s)
         {
             try
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    g.Subscriptions.Add(s);
+                    g.SubscriptionsTypes.Add(s);
                     g.SaveChanges();
                 }
             }
@@ -65,7 +65,7 @@ namespace Dal
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    g.Subscriptions.Remove(g.Subscriptions.Where(a => a.sub_id == id).First());
+                    g.SubscriptionsTypes.Remove(g.SubscriptionsTypes.Where(a => a.sub_id == id).First());
                     g.SaveChanges();
                 }
             }

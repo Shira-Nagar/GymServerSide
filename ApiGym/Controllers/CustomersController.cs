@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace GymApi.Controllers
 {
-    //[RoutePrefix("api/Customers")]
+    [RoutePrefix("api/Customers")]
     public class CustomersController : ApiController
     {
         // GET: api/Customers
@@ -27,12 +27,22 @@ namespace GymApi.Controllers
         }
 
         //    // POST: api/Customers
-        public void PostCustomer(Dto.ClassCustomers c)
+        [HttpPost]
+        [Route("PostCustomer1")]
+        public void PostNewCustomer(Dto.ClassCustomers c)
         {
             Bl.ClassCustomers.PostCustomer(c);
         }
 
-       // PUT: api/Customers/5
+
+        [HttpPost]
+        [Route("LogIn/{nameCustomer}/{password}")]
+        public List<Dto.ClassPurchases> PostCustomer(string nameCustomer,string password)
+        {
+            return Bl.ClassCustomers.PostCustomerOld(nameCustomer,password);
+        }
+
+        // PUT: api/Customers/5
         public void Put(int id, [FromBody]string value)
         {
         }
@@ -40,6 +50,7 @@ namespace GymApi.Controllers
        // DELETE: api/Customers/5
         public void Delete(int id)
         {
+            Bl.ClassCustomers.DeleteCustomer(id);
         }
 }
 }

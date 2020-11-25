@@ -17,8 +17,9 @@ namespace Dal
         public int customer_id { get; set; }
         public int sub_id { get; set; }
         public string status { get; set; }
+        public Nullable<int> training_id { get; set; }
     
         public virtual Customers Customers { get; set; }
-        public virtual Subscriptions Subscriptions { get; set; }
+        public virtual SubscriptionsTypes SubscriptionsTypes { get; set; }
     }
 }

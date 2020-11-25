@@ -10,7 +10,7 @@ namespace Dto
     {
         public int Messege_id { get; set; }
         public string Messege_Content { get; set; }
-        public DateTime Creation_date { get; set; }
-        public DateTime Deletion_date { get; set; }
+        public DateTime? Creation_date { get; set; }
+        public DateTime? Deletion_date { get; set; }
     }
 }

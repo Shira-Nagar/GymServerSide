@@ -12,5 +12,7 @@ namespace Dto
         public string specialty { get; set; }
         public string phone_num { get; set; }
         public string email { get; set; }
+        public string name { get; set; }
+
     }
 }

@@ -16,14 +16,13 @@ namespace Dal
                 {
                     return g.FitnessLessons.ToList();
                 }
-
-
             }
             catch (Exception e)
             {
                 return null;
             }
         }
+
             public static FitnessLessons GetFitnesslesson(int id)
             {
                 try
@@ -45,7 +44,59 @@ namespace Dal
                     return null;
                 }
             }
-            public static void PostFitnessLesson(FitnessLessons f)
+
+        public static List<FitnessLessons> GetLessonsByDay(string day)
+        {
+            try
+            {                
+                using(GymDBEntities g = new GymDBEntities())
+                {
+                    List<FitnessLessons> f = new List<FitnessLessons>();
+                    f = g.FitnessLessons.Where(x => x.day == day).ToList();
+                    return f;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static List<FitnessLessons> GetLessonsByTime(TimeSpan time)
+        {
+            try
+            {
+                using (GymDBEntities g = new GymDBEntities())
+                {
+                    List<FitnessLessons> f = new List<FitnessLessons>();
+                    f = g.FitnessLessons.Where(x => x.time == time).ToList();
+                    return f;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static List<FitnessLessons> GetLessonsByType(int name)
+        {
+            try
+            {
+                using (GymDBEntities g = new GymDBEntities())
+                {
+                    List<FitnessLessons> f = new List<FitnessLessons>();
+                    f = g.FitnessLessons.Where(x => x.name == name).ToList();
+                    return f;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static void PostFitnessLesson(FitnessLessons f)
             {
                 try
                 {

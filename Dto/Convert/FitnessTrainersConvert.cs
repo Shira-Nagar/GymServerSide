@@ -21,6 +21,7 @@ namespace Dto.Convert
                     specialty=item.specialty,
                     phone_num=item.phone_num,
                     email=item.email,
+                    name = item.name
                  };
                 Dtoft.Add(f);
             }
@@ -37,6 +38,7 @@ namespace Dto.Convert
                 specialty = ft.specialty,
                 phone_num = ft.phone_num,
                 email = ft.email,
+                name = ft.name
             };
 
             return fit;
@@ -49,6 +51,7 @@ namespace Dto.Convert
                 specialty = ft.specialty,
                 phone_num = ft.phone_num,
                 email = ft.email,
+                name = ft.name
             };
 
             return f;

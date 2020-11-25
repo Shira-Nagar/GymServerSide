@@ -24,5 +24,14 @@ namespace Bl
             Dal.ClassCustomers.PostCustomer(Dto.Convert.CustomersConvert.PostCusOne(c));
         }
 
+        public static  List<Dto.ClassPurchases> PostCustomerOld(string nameCustomer,string password)
+        {
+           return Dto.Convert.PurchasesConvert.GetDtoAllPurchases(Dal.ClassCustomers.GetPurchasesByPassword(nameCustomer, password));
+        }
+
+        public static void DeleteCustomer(int id)
+        {
+            Dal.ClassCustomers.DeleteCustomer(id);
+        }
     }
 }

@@ -5,9 +5,13 @@
       <PropertyRef Name="team_id" />
     </Key>
     <Property Name="team_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="descripition" Type="text" Nullable="false" />
-    <Property Name="trainig_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="int" Nullable="false" />
+    <Property Name="day" Type="text" Nullable="false" />
+    <Property Name="trainer_id" Type="int" />
+    <Property Name="gender" Type="nchar" MaxLength="10" />
+    <Property Name="actual_capacity" Type="int" />
+    <Property Name="status" Type="nchar" MaxLength="10" />
+    <Property Name="time" Type="time" Precision="7" />
   </EntityType>
   <EntityType Name="Customers">
     <Key>
@@ -15,20 +19,23 @@
     </Key>
     <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
-    <Property Name="address" Type="nchar" MaxLength="30" />
+    <Property Name="id_number" Type="nchar" MaxLength="30" />
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="phone" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="user_name" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="FitnessLessons">
     <Key>
       <PropertyRef Name="lesson_id" />
     </Key>
     <Property Name="lesson_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="int" Nullable="false" />
     <Property Name="day" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="time" Type="time" Precision="7" Nullable="false" />
     <Property Name="trainer_id" Type="int" Nullable="false" />
-    <Property Name="quota_training" Type="int" />
+    <Property Name="gender" Type="nchar" MaxLength="10" />
+    <Property Name="actual_capacity" Type="int" Nullable="false" />
+    <Property Name="status" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="FitnessTrainers">
     <Key>
@@ -37,7 +44,8 @@
     <Property Name="guide_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="phone_num" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="30" />
+    <Property Name="name" Type="nchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Presence">
     <Key>
@@ -52,21 +60,21 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
     <Key>
       <PropertyRef Name="customer_id" />
       <PropertyRef Name="sub_id" />
-      <PropertyRef Name="status" />
     </Key>
     <Property Name="customer_id" Type="int" Nullable="false" />
     <Property Name="sub_id" Type="int" Nullable="false" />
-    <Property Name="status" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="status" Type="nchar" MaxLength="10" />
+    <Property Name="training_id" Type="int" />
   </EntityType>
-  <EntityType Name="Subscriptions">
+  <EntityType Name="SubscriptionsTypes">
     <Key>
       <PropertyRef Name="sub_id" />
     </Key>
     <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nchar" MaxLength="20" />
     <Property Name="duration" Type="int" />
-    <Property Name="lessons_num" Type="int" Nullable="false" />
-    <Property Name="training_id" Type="int" />
+    <Property Name="lessons_num" Type="int" />
+    <Property Name="price" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -78,14 +86,14 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="SystemMesseges">
+  <EntityType Name="SystemMessege">
     <Key>
       <PropertyRef Name="Messege_id" />
     </Key>
     <Property Name="Messege_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Messege_Content" Type="text" Nullable="false" />
-    <Property Name="Creation_date" Type="datetime" Nullable="false" />
-    <Property Name="deletion_date" Type="datetime" Nullable="false" />
+    <Property Name="Messege_Content" Type="text" />
+    <Property Name="Creation_date" Type="datetime" />
+    <Property Name="deletion_date" Type="datetime" />
   </EntityType>
   <EntityType Name="Training">
     <Key>
@@ -94,20 +102,33 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
     <Property Name="training_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" />
     <Property Name="description" Type="text" />
+    <Property Name="quota" Type="int" />
   </EntityType>
-  <Association Name="FK_ClosedGroupes_Training">
-    <End Role="Training" Type="Self.Training" Multiplicity="1" />
+  <Association Name="FK_ClosedGroupes_FitnessLessons">
+    <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="1" />
     <End Role="ClosedGroupes" Type="Self.ClosedGroupes" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Training">
-        <PropertyRef Name="training_id" />
+      <Principal Role="FitnessLessons">
+        <PropertyRef Name="lesson_id" />
       </Principal>
       <Dependent Role="ClosedGroupes">
-        <PropertyRef Name="trainig_id" />
+        <PropertyRef Name="name" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FitnessLessons_FitnessTrainers1">
+  <Association Name="FK_ClosedGroupes_FitnessTrainers">
+    <End Role="FitnessTrainers" Type="Self.FitnessTrainers" Multiplicity="0..1" />
+    <End Role="ClosedGroupes" Type="Self.ClosedGroupes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FitnessTrainers">
+        <PropertyRef Name="guide_id" />
+      </Principal>
+      <Dependent Role="ClosedGroupes">
+        <PropertyRef Name="trainer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FitnessLessons_FitnessTrainers">
     <End Role="FitnessTrainers" Type="Self.FitnessTrainers" Multiplicity="1" />
     <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="*" />
     <ReferentialConstraint>
@@ -116,6 +137,18 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
       </Principal>
       <Dependent Role="FitnessLessons">
         <PropertyRef Name="trainer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FitnessLessons_Training">
+    <End Role="Training" Type="Self.Training" Multiplicity="1" />
+    <End Role="FitnessLessons" Type="Self.FitnessLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Training">
+        <PropertyRef Name="training_id" />
+      </Principal>
+      <Dependent Role="FitnessLessons">
+        <PropertyRef Name="name" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -144,10 +177,10 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchases_Subscriptions">
-    <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="1" />
+    <End Role="SubscriptionsTypes" Type="Self.SubscriptionsTypes" Multiplicity="1" />
     <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Subscriptions">
+      <Principal Role="SubscriptionsTypes">
         <PropertyRef Name="sub_id" />
       </Principal>
       <Dependent Role="Purchases">
@@ -161,23 +194,32 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
     <EntitySet Name="FitnessLessons" EntityType="Self.FitnessLessons" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FitnessTrainers" EntityType="Self.FitnessTrainers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Presence" EntityType="Self.Presence" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Subscriptions" EntityType="Self.Subscriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriptionsTypes" EntityType="Self.SubscriptionsTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SystemMesseges" EntityType="Self.SystemMesseges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemMessege" EntityType="Self.SystemMessege" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Purchases" EntityType="Self.Purchases" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Purchases].[customer_id] AS [customer_id], 
     [Purchases].[sub_id] AS [sub_id], 
-    [Purchases].[status] AS [status]
+    [Purchases].[status] AS [status], 
+    [Purchases].[training_id] AS [training_id]
     FROM [dbo].[Purchases] AS [Purchases]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK_ClosedGroupes_Training" Association="Self.FK_ClosedGroupes_Training">
-      <End Role="Training" EntitySet="Training" />
+    <AssociationSet Name="FK_ClosedGroupes_FitnessLessons" Association="Self.FK_ClosedGroupes_FitnessLessons">
+      <End Role="FitnessLessons" EntitySet="FitnessLessons" />
       <End Role="ClosedGroupes" EntitySet="ClosedGroupes" />
     </AssociationSet>
-    <AssociationSet Name="FK_FitnessLessons_FitnessTrainers1" Association="Self.FK_FitnessLessons_FitnessTrainers1">
+    <AssociationSet Name="FK_ClosedGroupes_FitnessTrainers" Association="Self.FK_ClosedGroupes_FitnessTrainers">
       <End Role="FitnessTrainers" EntitySet="FitnessTrainers" />
+      <End Role="ClosedGroupes" EntitySet="ClosedGroupes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FitnessLessons_FitnessTrainers" Association="Self.FK_FitnessLessons_FitnessTrainers">
+      <End Role="FitnessTrainers" EntitySet="FitnessTrainers" />
+      <End Role="FitnessLessons" EntitySet="FitnessLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FitnessLessons_Training" Association="Self.FK_FitnessLessons_Training">
+      <End Role="Training" EntitySet="Training" />
       <End Role="FitnessLessons" EntitySet="FitnessLessons" />
     </AssociationSet>
     <AssociationSet Name="FK_Presence_FitnessLessons1" Association="Self.FK_Presence_FitnessLessons1">
@@ -189,7 +231,7 @@ warning 6002: The table/view 'GymDB.dbo.Purchases' does not have a primary key d
       <End Role="Purchases" EntitySet="Purchases" />
     </AssociationSet>
     <AssociationSet Name="FK_Purchases_Subscriptions" Association="Self.FK_Purchases_Subscriptions">
-      <End Role="Subscriptions" EntitySet="Subscriptions" />
+      <End Role="SubscriptionsTypes" EntitySet="SubscriptionsTypes" />
       <End Role="Purchases" EntitySet="Purchases" />
     </AssociationSet>
   </EntityContainer>

@@ -22,9 +22,10 @@ namespace Dal
     
         public int customer_id { get; set; }
         public string name { get; set; }
-        public string address { get; set; }
+        public string id_number { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
+        public string user_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchases> Purchases { get; set; }

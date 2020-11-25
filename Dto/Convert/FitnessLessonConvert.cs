@@ -15,12 +15,14 @@ namespace Dto.Convert
             {
                 ClassFitnessLesson f = new ClassFitnessLesson()
                 {
-                    name = item.name,
-                    trainer_id = item.trainer_id,
                     lesson_id = item.lesson_id,
+                    name = item.name,
                     day = item.day,
                     time = item.time,
-                    quota_training = item.quota_training,
+                    trainer_id = item.trainer_id,
+                    gender = item.gender,
+                    actual_capacity = item.actual_capacity,
+                    status = item.status,
                 };
 
                 DtoFitnesslesson.Add(f);
@@ -31,12 +33,14 @@ namespace Dto.Convert
             {
                 ClassFitnessLesson f = new ClassFitnessLesson()
                 {
-                    name = fitle.name,
-                    trainer_id = fitle.trainer_id,
                     lesson_id = fitle.lesson_id,
+                    name = fitle.name,
                     day = fitle.day,
                     time = fitle.time,
-                    quota_training = fitle.quota_training,
+                    trainer_id = fitle.trainer_id,
+                    gender = fitle.gender,
+                    actual_capacity = fitle.actual_capacity,
+                    status = fitle.status,
                 };
 
                 return f;
@@ -45,13 +49,14 @@ namespace Dto.Convert
             {
                 Dal.FitnessLessons f = new Dal.FitnessLessons()
                 {
-                   
-                    name = fitle.name,
-                    trainer_id = fitle.trainer_id,
                     lesson_id = fitle.lesson_id,
+                    name = fitle.name,
                     day = fitle.day,
                     time = fitle.time,
-                    quota_training = fitle.quota_training,
+                    trainer_id = fitle.trainer_id,
+                    gender = fitle.gender,
+                    actual_capacity = fitle.actual_capacity,
+                    status = fitle.status,
                 };
 
                 return f;

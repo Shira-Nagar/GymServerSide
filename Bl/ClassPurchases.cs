@@ -19,6 +19,12 @@ namespace Bl
             return Dto.Convert.PurchasesConvert.GetSinglePurchase(Dal.ClassPurchases.GetPurchasesById(id));
         }
 
+
+        public static List<Dto.ClassPurchases> GetListOfTrainers(int training_id)
+        {
+            return Dto.Convert.PurchasesConvert.GetDtoAllPurchases(Dal.ClassPurchases.GetListOfCustomers(training_id));
+        }
+
         public static void PostPurchases(Dto.ClassPurchases p)
         {
             Dal.ClassPurchases.PostPurchase(Dto.Convert.PurchasesConvert.PostPurchases(p));

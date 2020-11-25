@@ -30,9 +30,9 @@ namespace Dal
         public virtual DbSet<FitnessLessons> FitnessLessons { get; set; }
         public virtual DbSet<FitnessTrainers> FitnessTrainers { get; set; }
         public virtual DbSet<Presence> Presence { get; set; }
-        public virtual DbSet<Subscriptions> Subscriptions { get; set; }
+        public virtual DbSet<SubscriptionsTypes> SubscriptionsTypes { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<SystemMesseges> SystemMesseges { get; set; }
+        public virtual DbSet<SystemMessege> SystemMessege { get; set; }
         public virtual DbSet<Training> Training { get; set; }
         public virtual DbSet<Purchases> Purchases { get; set; }
     }

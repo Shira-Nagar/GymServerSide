@@ -21,7 +21,25 @@ namespace Dal
                 return null;
             }
         }
-
+        public static List<Purchases> GetPurchasesByPassword(string user_name,string password)
+        {
+            try
+            {
+                using (GymDBEntities g = new GymDBEntities())
+                {
+                    Customers cc = g.Customers.First(a => a.user_name == user_name && a.id_number == password);
+                    int customerId = cc.customer_id;
+                    List<Purchases> p = new List<Purchases>();
+                    p = g.Purchases.Where(pp => pp.customer_id == customerId).ToList();
+                    return p;
+                }
+                    
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public static Customers GetOneCustomer(int id)
         {
             try

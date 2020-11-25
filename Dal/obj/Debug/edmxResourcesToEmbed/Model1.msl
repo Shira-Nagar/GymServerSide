@@ -6,8 +6,12 @@
         <MappingFragment StoreEntitySet="ClosedGroupes">
           <ScalarProperty Name="team_id" ColumnName="team_id" />
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="descripition" ColumnName="descripition" />
-          <ScalarProperty Name="trainig_id" ColumnName="trainig_id" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="actual_capacity" ColumnName="actual_capacity" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="time" ColumnName="time" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -16,9 +20,10 @@
         <MappingFragment StoreEntitySet="Customers">
           <ScalarProperty Name="customer_id" ColumnName="customer_id" />
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="id_number" ColumnName="id_number" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -30,7 +35,9 @@
           <ScalarProperty Name="day" ColumnName="day" />
           <ScalarProperty Name="time" ColumnName="time" />
           <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
-          <ScalarProperty Name="quota_training" ColumnName="quota_training" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="actual_capacity" ColumnName="actual_capacity" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -41,6 +48,7 @@
           <ScalarProperty Name="specialty" ColumnName="specialty" />
           <ScalarProperty Name="phone_num" ColumnName="phone_num" />
           <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -52,14 +60,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Subscriptions">
-      <EntityTypeMapping TypeName="GymDBModel.Subscriptions">
-        <MappingFragment StoreEntitySet="Subscriptions">
+    <EntitySetMapping Name="SubscriptionsTypes">
+      <EntityTypeMapping TypeName="GymDBModel.SubscriptionsTypes">
+        <MappingFragment StoreEntitySet="SubscriptionsTypes">
           <ScalarProperty Name="sub_id" ColumnName="sub_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="duration" ColumnName="duration" />
           <ScalarProperty Name="lessons_num" ColumnName="lessons_num" />
-          <ScalarProperty Name="training_id" ColumnName="training_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -74,9 +82,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SystemMesseges">
-      <EntityTypeMapping TypeName="GymDBModel.SystemMesseges">
-        <MappingFragment StoreEntitySet="SystemMesseges">
+    <EntitySetMapping Name="SystemMessege">
+      <EntityTypeMapping TypeName="GymDBModel.SystemMessege">
+        <MappingFragment StoreEntitySet="SystemMessege">
           <ScalarProperty Name="Messege_id" ColumnName="Messege_id" />
           <ScalarProperty Name="Messege_Content" ColumnName="Messege_Content" />
           <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
@@ -90,6 +98,7 @@
           <ScalarProperty Name="training_id" ColumnName="training_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="quota" ColumnName="quota" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,6 +108,7 @@
           <ScalarProperty Name="customer_id" ColumnName="customer_id" />
           <ScalarProperty Name="sub_id" ColumnName="sub_id" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="training_id" ColumnName="training_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

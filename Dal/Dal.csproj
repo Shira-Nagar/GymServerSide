@@ -59,7 +59,7 @@
     <Compile Include="ClassFitnessTrainers.cs" />
     <Compile Include="ClassPresence.cs" />
     <Compile Include="ClassPurchases.cs" />
-    <Compile Include="ClassSubscription.cs" />
+    <Compile Include="ClassSubscriptionsTypes.cs" />
     <Compile Include="ClassSystemMessege.cs" />
     <Compile Include="ClassTraining.cs" />
     <Compile Include="ClosedGroupes.cs">
@@ -96,13 +96,13 @@
     <Compile Include="Purchases.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Subscriptions.cs">
+    <Compile Include="SubscriptionsTypes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SystemMesseges.cs">
+    <Compile Include="SystemMessege.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Training.cs">

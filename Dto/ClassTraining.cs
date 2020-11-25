@@ -10,6 +10,7 @@ namespace Dto
     {
         public int Training_id { get; set; }
         public string name { get; set; }
-        public string descripition { get; set; }
+        public string description { get; set; }
+        public int? quota { get; set; }
     }
 }

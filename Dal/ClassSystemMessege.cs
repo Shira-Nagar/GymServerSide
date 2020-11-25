@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 {
      public class ClassSystemMessege
     {
-        public static List<SystemMesseges> GetAllMesseges()
+        public static List<SystemMessege> GetAllMesseges()
         {
             try
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    return g.SystemMesseges.ToList();
+                    return g.SystemMessege.OrderByDescending(x => x.Creation_date).ToList();
+                    
                 }
             }
             catch (Exception e)
@@ -23,13 +24,13 @@ using System.Threading.Tasks;
             }
 
         }
-        public static SystemMesseges GetMessege(int id)
+        public static SystemMessege GetMessege(int id)
         {
             try
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    foreach (var item in g.SystemMesseges)
+                    foreach (var item in g.SystemMessege)
                     {
                         if (item.Messege_id == id)
                         {
@@ -44,13 +45,13 @@ using System.Threading.Tasks;
                 return null;
             }
         }
-        public static void PostSMessege(SystemMesseges sm)
+        public static void PostSMessege(SystemMessege sm)
         {
             try
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    g.SystemMesseges.Add(sm);
+                    g.SystemMessege.Add(sm);
                     g.SaveChanges();
                 }
             }
@@ -65,7 +66,7 @@ using System.Threading.Tasks;
             {
                 using (GymDBEntities g = new GymDBEntities())
                 {
-                    g.SystemMesseges.Remove(g.SystemMesseges.Where(a => a.Messege_id == id).First());
+                    g.SystemMessege.Remove(g.SystemMessege.Where(a => a.Messege_id == id).First());
                     g.SaveChanges();
                 }
             }

@@ -56,7 +56,7 @@
     <Compile Include="ClassFitnessTrainers.cs" />
     <Compile Include="ClassPresence.cs" />
     <Compile Include="ClassPurchases.cs" />
-    <Compile Include="ClassSubsciption.cs" />
+    <Compile Include="ClassSubsciptionsTypes.cs" />
     <Compile Include="ClassSystemMessege.cs" />
     <Compile Include="ClassTraining.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

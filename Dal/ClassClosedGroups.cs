@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-  public   class ClassClosedGroups
+  public class ClassClosedGroups
     {
         public static List<ClosedGroupes> GetAllClosedGroups()
         {

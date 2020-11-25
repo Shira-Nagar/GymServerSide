@@ -18,8 +18,10 @@ namespace Dto.Convert
                 {
                     customer_id = item.customer_id,
                     name = item.name,
+                    id_number = item.id_number,
                     email = item.email,
                     phone_num = item.phone,
+                    user_name = item.user_name
                 };
                 DtoCu.Add(c);
             }
@@ -32,8 +34,10 @@ namespace Dto.Convert
             {
                 customer_id = c.customer_id,
                 name = c.name,
+                id_number = c.id_number,
                 email = c.email,
-                phone_num = c.phone
+                phone_num = c.phone,
+                user_name = c.user_name
             };
             return cl;
         }
@@ -44,14 +48,16 @@ namespace Dto.Convert
             {
                 customer_id = Cus.customer_id,
                 name = Cus.name,
+                id_number = Cus.id_number,
                 email = Cus.email,
                 phone = Cus.phone_num,
+                user_name = Cus.user_name
             };
 
             return c;
         }
 
-
+        
     }
 }
 

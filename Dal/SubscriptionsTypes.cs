@@ -12,10 +12,10 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Subscriptions
+    public partial class SubscriptionsTypes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Subscriptions()
+        public SubscriptionsTypes()
         {
             this.Purchases = new HashSet<Purchases>();
         }
@@ -23,8 +23,8 @@ namespace Dal
         public int sub_id { get; set; }
         public string name { get; set; }
         public Nullable<int> duration { get; set; }
-        public int lessons_num { get; set; }
-        public Nullable<int> training_id { get; set; }
+        public Nullable<int> lessons_num { get; set; }
+        public Nullable<int> price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchases> Purchases { get; set; }

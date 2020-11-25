@@ -12,11 +12,11 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class SystemMesseges
+    public partial class SystemMessege
     {
         public int Messege_id { get; set; }
         public string Messege_Content { get; set; }
-        public System.DateTime Creation_date { get; set; }
-        public System.DateTime deletion_date { get; set; }
+        public Nullable<System.DateTime> Creation_date { get; set; }
+        public Nullable<System.DateTime> deletion_date { get; set; }
     }
 }

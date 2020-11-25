@@ -16,11 +16,13 @@ namespace Dto.Convert
                 {
                     ClassClosedGroups cg = new ClassClosedGroups()
                     {
-                        training_id = item.trainig_id,
                         name = item.name,
-                        descripition = item.descripition,
-                        team_id = item.team_id,
-
+                        day = item.day,
+                        trainer_id = item.trainer_id,                       
+                        gender = item.gender,
+                        actual_capacity = item.actual_capacity,
+                        status = item.status,
+                        time = item.time
                     };
                     DtoCg.Add(cg);
                 }
@@ -31,9 +33,12 @@ namespace Dto.Convert
                 ClassClosedGroups c = new ClassClosedGroups()
                 {
                     name = Cg.name,
-                    descripition = Cg.descripition,
-                    training_id = Cg.trainig_id,
-                    team_id = Cg.team_id,
+                    day = Cg.day,
+                    trainer_id = Cg.trainer_id,
+                    gender = Cg.gender,
+                    actual_capacity = Cg.actual_capacity,
+                    status = Cg.status,
+                    time = Cg.time
                 };
 
                 return c;
@@ -41,12 +46,14 @@ namespace Dto.Convert
             public static Dal.ClosedGroupes PostCgOne(ClassClosedGroups Cg)
             {
                 Dal.ClosedGroupes c = new Dal.ClosedGroupes()
-                { 
-                    team_id = Cg.team_id,
+                {
                     name = Cg.name,
-                    descripition = Cg.descripition,
-                   
-                    trainig_id = Cg.training_id,
+                    day = Cg.day,
+                    trainer_id = Cg.trainer_id,
+                    gender = Cg.gender,
+                    actual_capacity = Cg.actual_capacity,
+                    status = Cg.status,
+                    time = Cg.time
                 };
         
 

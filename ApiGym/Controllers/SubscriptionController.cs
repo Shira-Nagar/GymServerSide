@@ -10,21 +10,21 @@ namespace GymApi.Controllers
     public class SubscriptionController : ApiController
     {
         // GET: api/S
-        public List<ClassSubscription> Get()
+        public List<ClassSubscriptionsTypes> Get()
         {
-            return Bl.ClassSubsciption.GetAllSubscriptions();
+            return Bl.ClassSubsciptionsTypes.GetAllSubscriptions();
         }
 
         // GET: api/S/5
-        public ClassSubscription  Get(int id)
+        public ClassSubscriptionsTypes  Get(int id)
         {
-            return Bl.ClassSubsciption.GetSubscription(id);
+            return Bl.ClassSubsciptionsTypes.GetSubscription(id);
         }
 
         // POST: api/S
-        public void Post(Dto.ClassSubscription s)
+        public void Post(Dto.ClassSubscriptionsTypes s)
         {
-            Bl.ClassSubsciption.PostSubscription(s);
+            Bl.ClassSubsciptionsTypes.PostSubscription(s);
         }
       
         // PUT: api/S/5
@@ -35,7 +35,7 @@ namespace GymApi.Controllers
         // DELETE: api/S/5
         public void Delete(int id)
         {
-            Bl.ClassSubsciption.DeleteSubscription(id);
+            Bl.ClassSubsciptionsTypes.DeleteSubscription(id);
         }
 
     }

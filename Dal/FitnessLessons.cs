@@ -17,17 +17,23 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FitnessLessons()
         {
+            this.ClosedGroupes = new HashSet<ClosedGroupes>();
             this.Presence = new HashSet<Presence>();
         }
     
         public int lesson_id { get; set; }
-        public string name { get; set; }
+        public int name { get; set; }
         public string day { get; set; }
         public System.TimeSpan time { get; set; }
         public int trainer_id { get; set; }
-        public Nullable<int> quota_training { get; set; }
+        public string gender { get; set; }
+        public int actual_capacity { get; set; }
+        public string status { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClosedGroupes> ClosedGroupes { get; set; }
         public virtual FitnessTrainers FitnessTrainers { get; set; }
+        public virtual Training Training { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Presence> Presence { get; set; }
     }

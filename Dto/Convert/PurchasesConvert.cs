@@ -18,7 +18,8 @@ namespace Dto.Convert
                 {
                     customer_id = item.customer_id,
                     sub_id = item.sub_id,
-                    status = item.status
+                    status = item.status,
+                    training_id = item.training_id
                 };
                 DtoPurchase.Add(cp);
             }
@@ -31,7 +32,9 @@ namespace Dto.Convert
             {
                 customer_id = p.customer_id,
                 sub_id = p.sub_id,
-                status = p.status
+                status = p.status,
+                training_id = p.training_id
+
             };
             return cp;
         }
@@ -42,7 +45,9 @@ namespace Dto.Convert
             {
                 customer_id = p.customer_id,
                 sub_id = p.sub_id,
-                status = p.status
+                status = p.status,
+                training_id = p.training_id
+
             };
             return p1;
         }

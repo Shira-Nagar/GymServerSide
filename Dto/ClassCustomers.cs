@@ -10,7 +10,9 @@ namespace Dto
     {
         public int  customer_id { get; set; }
         public string  name { get; set; }
+        public string id_number { get; set; } 
         public string  email { get; set; }
         public string phone_num { get; set; }
+        public string user_name { get; set; }
     }
 }

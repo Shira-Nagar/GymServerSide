@@ -15,9 +15,15 @@ namespace Dal
                 {
                     using (GymDBEntities g = new GymDBEntities())
                     {
-                        return g.Presence.ToList();
-                    }
+                    return null;/*g.Presence.GroupBy(p => p.lesson_id).OrderBy(o => o.Key).Select(s => s.Key);*/
+
+                    //g.Presence.GroupBy(p => p.sub_id,
+                    //                              p => p.lesson_id,
+                    //                              (key, gr) => new { sub_id = key, lesson_id = gr.ToList() });
+
+
                 }
+            }
                 catch (Exception e)
                 {
                     return null;

@@ -9,7 +9,7 @@ using Dal;
 {
    public class SystemMessegeConvert
     { 
-        public static List<ClassSystemMessege> GetAllSMessege(List<Dal.SystemMesseges> Allm)
+        public static List<ClassSystemMessege> GetAllSMessege(List<Dal.SystemMessege> Allm)
         {
             List<ClassSystemMessege> DtoSMessege = new List<ClassSystemMessege>();
 
@@ -28,7 +28,7 @@ using Dal;
         }
 
        
-        public static ClassSystemMessege GetDtoSMessege(Dal.SystemMesseges m)
+        public static ClassSystemMessege GetDtoSMessege(Dal.SystemMessege m)
         {
             ClassSystemMessege me= new ClassSystemMessege()
             {
@@ -40,9 +40,9 @@ using Dal;
 
             return me;
         }
-        public static Dal.SystemMesseges PostSMessege(ClassSystemMessege m)
+        public static Dal.SystemMessege PostSMessege(ClassSystemMessege m)
         {
-            Dal.SystemMesseges me = new Dal.SystemMesseges()
+            Dal.SystemMessege me = new Dal.SystemMessege()
             {
                 Messege_id = m.Messege_id,
                 Messege_Content = m.Messege_Content,

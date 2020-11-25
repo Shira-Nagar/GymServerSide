@@ -16,9 +16,10 @@ namespace Dto.Convert
             {
                 ClassTraining t = new ClassTraining()
                 {
+                    Training_id = item.training_id,
                     name = item.name,
-                    descripition = item.description,
-                    Training_id = item.training_id
+                    description = item.description,
+                    quota = item.quota
                 };
                    
                 DtoTrainings.Add(t);
@@ -32,9 +33,10 @@ namespace Dto.Convert
         {
             ClassTraining t = new ClassTraining()
             {
-                name = Training.name,
-                descripition = Training.description,
                 Training_id = Training.training_id,
+                name = Training.name,
+                description = Training.description,
+                quota = Training.quota
             };
             return t;
         }
@@ -42,9 +44,10 @@ namespace Dto.Convert
         {
             Dal.Training t = new Dal.Training()
             {
-                name = Training.name,
-                description=Training.descripition,
                 training_id = Training.Training_id,
+                name = Training.name,
+                description = Training.description,
+                quota = Training.quota
             };
 
             return t;
